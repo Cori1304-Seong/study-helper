@@ -65,6 +65,19 @@ npm run dev
 스키마를 고쳤으면 `npm run db:generate`로 마이그레이션을 만들고 `db:migrate`로 적용한다.
 `npm run db:studio`로 데이터를 눈으로 볼 수 있다.
 
+### 접속 DB 전환
+
+스크립트 이름에 `:neon`이 붙으면 `.env.prod`, 없으면 `.env.local`을 쓴다.
+`dev:neon` / `db:migrate:neon` / `db:studio:neon`.
+
+Next는 `.env.prod` 같은 임의 파일명을 **읽지 않는다**. 읽는 건
+`.env.$(NODE_ENV).local` → `.env.local` → `.env.$(NODE_ENV)` → `.env` 뿐이다.
+`scripts/with-env.mjs`가 파일을 파싱해 자식 프로세스 환경변수로 넘기는 구조다
+(`process.env`가 모든 `.env` 파일보다 우선하므로 동작한다).
+
+원격 DB에 `drizzle-kit migrate/push/drop`을 돌리면 확인 프롬프트가 뜬다.
+CI에서는 `CI=1`로 건너뛴다.
+
 ## 검증
 
 ```bash

@@ -1,3 +1,5 @@
+import "server-only";
+
 import path from "node:path";
 import { readFile } from "node:fs/promises";
 import { CurriculumPart } from "../../types/note";

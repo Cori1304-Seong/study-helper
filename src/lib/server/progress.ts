@@ -1,3 +1,5 @@
+import "server-only";
+
 import { eq, inArray } from "drizzle-orm";
 import { db } from "../db";
 import { questionProgress, sectionProgress } from "../db/schema";
