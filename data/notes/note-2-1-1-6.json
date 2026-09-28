@@ -1,0 +1,119 @@
+{
+  "id": "note-2-1-1-6",
+  "title": "그룹 관리",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.6",
+    "page": 37
+  },
+  "summary": "그룹 생성·변경·삭제 명령어와 그룹 정보가 저장되는 파일 체계.",
+  "tags": [
+    "그룹",
+    "권한"
+  ],
+  "updatedAt": "2026-09-18T10:20:00.000Z",
+  "sections": [
+    {
+      "id": "note-2-1-1-6/commands",
+      "title": "그룹 관리 명령어",
+      "kind": "command",
+      "items": [
+        {
+          "term": "groupadd",
+          "desc": "새 그룹을 생성한다",
+          "options": [
+            {
+              "flag": "-g",
+              "meaning": "GID를 직접 지정"
+            },
+            {
+              "flag": "-r",
+              "meaning": "시스템 그룹(GID 1000 미만)으로 생성"
+            },
+            {
+              "flag": "-f",
+              "meaning": "이미 존재해도 오류 없이 종료"
+            }
+          ]
+        },
+        {
+          "term": "groupmod",
+          "desc": "기존 그룹의 이름이나 GID를 변경한다",
+          "options": [
+            {
+              "flag": "-g",
+              "meaning": "GID 변경"
+            },
+            {
+              "flag": "-n",
+              "meaning": "그룹 이름 변경"
+            }
+          ]
+        },
+        {
+          "term": "groupdel",
+          "desc": "그룹을 삭제한다 (기본 그룹으로 쓰는 사용자가 있으면 실패)"
+        },
+        {
+          "term": "gpasswd",
+          "desc": "그룹 암호와 그룹 관리자·멤버를 설정한다",
+          "options": [
+            {
+              "flag": "-A",
+              "meaning": "그룹 관리자 지정"
+            },
+            {
+              "flag": "-a",
+              "meaning": "그룹에 사용자 추가"
+            },
+            {
+              "flag": "-d",
+              "meaning": "그룹에서 사용자 제거"
+            }
+          ]
+        },
+        {
+          "term": "newgrp",
+          "desc": "현재 셸의 기본 그룹을 일시적으로 전환한다"
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-1-6/files",
+      "title": "관련 설정 파일",
+      "kind": "file",
+      "items": [
+        {
+          "term": "/etc/group",
+          "desc": "그룹 기본 정보 (모든 사용자가 읽을 수 있다)",
+          "format": "그룹명:암호:GID:멤버목록"
+        },
+        {
+          "term": "/etc/gshadow",
+          "desc": "그룹 암호와 그룹 관리자 정보 (root만 읽을 수 있다)",
+          "format": "그룹명:암호:관리자목록:멤버목록"
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-1-6/policy",
+      "title": "GID 할당 정책",
+      "kind": "config",
+      "path": "/etc/login.defs",
+      "body": "GID_MIN                  1000\nGID_MAX                 60000\nSYS_GID_MIN               201\nSYS_GID_MAX               999",
+      "blanks": [
+        "GID_MIN",
+        "GID_MAX",
+        "SYS_GID_MIN"
+      ]
+    },
+    {
+      "id": "note-2-1-1-6/why",
+      "title": "실무에서 왜 중요한가",
+      "kind": "overview",
+      "body": "부서·프로젝트 단위 공유 디렉터리 권한 설계의 기반이다. 공유 디렉터리에 setgid(chmod 2775)를 걸면 그 안에서 생성되는 파일의 그룹이 디렉터리의 그룹으로 상속되므로, 팀원이 umask를 어떻게 두든 공유가 깨지지 않는다. 반대로 개별 사용자마다 별도 그룹(UPG)을 두는 이유는 umask 002를 안전하게 쓰기 위해서다."
+    }
+  ]
+}

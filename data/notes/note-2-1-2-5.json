@@ -1,0 +1,108 @@
+{
+  "id": "note-2-1-2-5",
+  "title": "스왑(Swap) 생성",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.2",
+    "item": "1.2.5",
+    "page": 73
+  },
+  "summary": "스왑 파티션·스왑 파일 생성 절차와 확인 명령.",
+  "tags": [
+    "파일시스템",
+    "스왑"
+  ],
+  "updatedAt": "2026-09-19T11:30:00.000Z",
+  "sections": [
+    {
+      "id": "note-2-1-2-5/steps",
+      "title": "스왑 파일 생성 절차",
+      "kind": "steps",
+      "items": [
+        {
+          "term": "dd if=/dev/zero of=/swapfile bs=1M count=2048",
+          "desc": "원하는 크기만큼 빈 파일을 만든다"
+        },
+        {
+          "term": "chmod 600 /swapfile",
+          "desc": "소유자만 읽고 쓸 수 있게 권한을 좁힌다"
+        },
+        {
+          "term": "mkswap /swapfile",
+          "desc": "파일을 스왑 영역으로 포맷한다"
+        },
+        {
+          "term": "swapon /swapfile",
+          "desc": "스왑을 즉시 활성화한다"
+        },
+        {
+          "term": "/etc/fstab에 항목 추가",
+          "desc": "재부팅 후에도 유지되도록 등록한다"
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-2-5/commands",
+      "title": "스왑 관련 명령어",
+      "kind": "command",
+      "items": [
+        {
+          "term": "mkswap",
+          "desc": "장치나 파일을 스왑 영역으로 초기화한다",
+          "options": [
+            {
+              "flag": "-L",
+              "meaning": "레이블 지정"
+            }
+          ]
+        },
+        {
+          "term": "swapon",
+          "desc": "스왑 영역을 활성화한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "/etc/fstab의 모든 스왑 활성화"
+            },
+            {
+              "flag": "-s",
+              "meaning": "현재 사용 중인 스왑 목록 출력"
+            }
+          ]
+        },
+        {
+          "term": "swapoff",
+          "desc": "스왑 영역을 비활성화한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "모든 스왑 비활성화"
+            }
+          ]
+        },
+        {
+          "term": "free",
+          "desc": "메모리와 스왑의 사용량을 요약해 보여준다",
+          "options": [
+            {
+              "flag": "-h",
+              "meaning": "사람이 읽기 좋은 단위로 출력"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-2-5/fstab",
+      "title": "fstab 등록 형식",
+      "kind": "config",
+      "path": "/etc/fstab",
+      "body": "/swapfile   none   swap   defaults   0   0",
+      "blanks": [
+        "swap",
+        "defaults"
+      ]
+    }
+  ]
+}

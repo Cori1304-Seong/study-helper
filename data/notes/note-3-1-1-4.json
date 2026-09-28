@@ -1,0 +1,79 @@
+{
+  "id": "note-3-1-1-4",
+  "title": "httpd.conf 분석",
+  "book": {
+    "part": 3,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.4",
+    "page": 202
+  },
+  "summary": "아파치 주 설정 파일의 핵심 지시어와 디렉터리 접근 제어 블록.",
+  "tags": [
+    "웹",
+    "아파치"
+  ],
+  "updatedAt": "2026-09-20T08:40:00.000Z",
+  "sections": [
+    {
+      "id": "note-3-1-1-4/global",
+      "title": "전역 지시어",
+      "kind": "config",
+      "path": "/etc/httpd/conf/httpd.conf",
+      "body": "ServerRoot \"/etc/httpd\"\nListen 80\nUser apache\nGroup apache\nServerAdmin root@localhost\nDocumentRoot \"/var/www/html\"",
+      "blanks": [
+        "ServerRoot",
+        "Listen",
+        "DocumentRoot",
+        "User"
+      ]
+    },
+    {
+      "id": "note-3-1-1-4/directory",
+      "title": "디렉터리 접근 제어 블록",
+      "kind": "config",
+      "path": "/etc/httpd/conf/httpd.conf",
+      "body": "<Directory \"/var/www/html\">\n    Options Indexes FollowSymLinks\n    AllowOverride None\n    Require all granted\n</Directory>",
+      "blanks": [
+        "Options",
+        "AllowOverride",
+        "Require"
+      ]
+    },
+    {
+      "id": "note-3-1-1-4/directives",
+      "title": "주요 지시어의 의미",
+      "kind": "command",
+      "items": [
+        {
+          "term": "KeepAlive",
+          "desc": "하나의 연결로 여러 요청을 처리할지 여부",
+          "options": [
+            {
+              "flag": "KeepAliveTimeout",
+              "meaning": "다음 요청을 기다리는 초"
+            },
+            {
+              "flag": "MaxKeepAliveRequests",
+              "meaning": "한 연결에서 허용할 최대 요청 수"
+            }
+          ]
+        },
+        {
+          "term": "AllowOverride",
+          "desc": ".htaccess로 재정의할 수 있는 지시어의 범위를 정한다"
+        },
+        {
+          "term": "DirectoryIndex",
+          "desc": "디렉터리 요청 시 기본으로 찾을 파일 이름을 나열한다"
+        }
+      ]
+    },
+    {
+      "id": "note-3-1-1-4/overview",
+      "title": "설정 변경 후의 원칙",
+      "kind": "overview",
+      "body": "설정을 고친 뒤에는 반드시 apachectl configtest(= httpd -t)로 문법을 검증한 다음 reload한다. restart는 진행 중인 연결을 끊지만 reload(graceful)는 기존 연결을 마무리하고 워커를 교체한다."
+    }
+  ]
+}

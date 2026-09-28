@@ -1,0 +1,56 @@
+{
+  "id": "note-2-1-1-3",
+  "title": "사용자 관련 파일",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.3",
+    "page": 25
+  },
+  "summary": "계정 정보가 흩어져 저장되는 네 개의 파일과 각각의 필드 포맷.",
+  "tags": [
+    "사용자",
+    "파일"
+  ],
+  "updatedAt": "2026-09-17T09:00:00.000Z",
+  "sections": [
+    {
+      "id": "note-2-1-1-3/files",
+      "title": "계정 정보 파일",
+      "kind": "file",
+      "items": [
+        {
+          "term": "/etc/passwd",
+          "desc": "계정의 기본 속성 (UID, 홈 디렉터리, 로그인 셸)",
+          "format": "계정명:x:UID:GID:설명:홈디렉터리:로그인셸"
+        },
+        {
+          "term": "/etc/shadow",
+          "desc": "암호화된 패스워드와 만료 정책",
+          "format": "계정명:암호:마지막변경일:MIN:MAX:경고일:유예기간:만료일:예약"
+        },
+        {
+          "term": "/etc/default/useradd",
+          "desc": "useradd가 참조하는 기본값 (기본 셸, 홈 경로)"
+        },
+        {
+          "term": "/etc/skel",
+          "desc": "새 계정 생성 시 홈 디렉터리로 복사되는 원본 디렉터리"
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-1-3/defaults",
+      "title": "useradd 기본값",
+      "kind": "config",
+      "path": "/etc/default/useradd",
+      "body": "GROUP=100\nHOME=/home\nINACTIVE=-1\nEXPIRE=\nSHELL=/bin/bash\nSKEL=/etc/skel",
+      "blanks": [
+        "HOME",
+        "SHELL",
+        "SKEL"
+      ]
+    }
+  ]
+}

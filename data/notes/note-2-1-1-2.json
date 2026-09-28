@@ -1,0 +1,112 @@
+{
+  "id": "note-2-1-1-2",
+  "title": "사용자 생성 명령어",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.2",
+    "page": 22
+  },
+  "summary": "useradd/adduser 계열 명령과 계정 생성 시 함께 일어나는 일들.",
+  "tags": [
+    "사용자",
+    "명령어"
+  ],
+  "sections": [
+    {
+      "id": "note-2-1-1-2/commands",
+      "title": "계정 생성 명령어",
+      "kind": "command",
+      "items": [
+        {
+          "term": "useradd",
+          "desc": "새 사용자 계정을 생성한다",
+          "options": [
+            {
+              "flag": "-u",
+              "meaning": "UID 직접 지정"
+            },
+            {
+              "flag": "-g",
+              "meaning": "기본 그룹 지정"
+            },
+            {
+              "flag": "-G",
+              "meaning": "2차 그룹(보조 그룹) 지정"
+            },
+            {
+              "flag": "-d",
+              "meaning": "홈 디렉터리 경로 지정"
+            },
+            {
+              "flag": "-s",
+              "meaning": "로그인 셸 지정"
+            },
+            {
+              "flag": "-M",
+              "meaning": "홈 디렉터리를 만들지 않음"
+            },
+            {
+              "flag": "-p",
+              "meaning": "유저 생성시 비밀번호 저장(암호화 되지 않은 문자가 저장되기에 사용 지양)"
+            }
+          ]
+        },
+        {
+          "term": "passwd",
+          "desc": "계정의 패스워드를 설정하거나 변경한다",
+          "options": [
+            {
+              "flag": "-l",
+              "meaning": "계정 잠금"
+            },
+            {
+              "flag": "-u",
+              "meaning": "계정 잠금 해제"
+            },
+            {
+              "flag": "-d",
+              "meaning": "패스워드 삭제"
+            }
+          ]
+        },
+        {
+          "term": "chage",
+          "desc": "패스워드 만료 관련 정책을 조회·변경한다",
+          "options": [
+            {
+              "flag": "-l",
+              "meaning": "현재 만료 정보 조회"
+            },
+            {
+              "flag": "-M",
+              "meaning": "최대 사용 기간 설정"
+            },
+            {
+              "flag": "-E",
+              "meaning": "계정 만료일 설정"
+            }
+          ]
+        },
+        {
+          "term": "su",
+          "desc": "substitute user(대리 유저)라는 뜻으로,시스템에 로그인되어 있는 상태에서 다른 사용자 권한으로 셜을 실항할 수 있도록 전환하는 명령어이다. ",
+          "options": [
+            {
+              "flag": "-c",
+              "meaning": "사용자 전환 없이 다른 사용자의 권한으로 명령을 일시적으로 수행할 때 사용한다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-1-2/overview",
+      "title": "서술",
+      "kind": "overview",
+      "body": "# su \n\n- 테넷과 같은 원격 접속시 root 계정으로 로그인이 불가능하도록 설정되어 있다. 그렇기에 관리자가 root로 접근 하기위해서 사용되는 명령어\n- 옵션 없이 실행하면 "
+    }
+  ],
+  "updatedAt": "2026-09-25T05:43:03.535Z"
+}

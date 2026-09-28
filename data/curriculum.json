@@ -1,0 +1,521 @@
+[
+  {
+    "code": "Part02",
+    "title": "리눅스 시스템 관리",
+    "chapters": [
+      {
+        "code": "01",
+        "title": "일반 운영 관리",
+        "sections": [
+          {
+            "code": "1.1",
+            "title": "사용자 관리",
+            "page": 22,
+            "items": [
+              {
+                "code": "1.1.1",
+                "title": "사용자(User)의 개요",
+                "page": 22
+              },
+              {
+                "code": "1.1.2",
+                "title": "사용자 생성 명령어",
+                "page": 22
+              },
+              {
+                "code": "1.1.3",
+                "title": "사용자 관련 파일",
+                "page": 25
+              },
+              {
+                "code": "1.1.4",
+                "title": "사용자 계정 관리 및 삭제",
+                "page": 32
+              },
+              {
+                "code": "1.1.5",
+                "title": "사용자 패스워드 관리",
+                "page": 34
+              },
+              {
+                "code": "1.1.6",
+                "title": "그룹 관리",
+                "page": 37
+              },
+              {
+                "code": "1.1.7",
+                "title": "사용자 조회 명령어",
+                "page": 42
+              },
+              {
+                "code": "1.1.8",
+                "title": "기타 명령어",
+                "page": 46
+              }
+            ]
+          },
+          {
+            "code": "1.2",
+            "title": "파일 시스템 관리",
+            "page": 49,
+            "items": [
+              {
+                "code": "1.2.1",
+                "title": "권한의 개요",
+                "page": 49
+              },
+              {
+                "code": "1.2.2",
+                "title": "파일 시스템의 이해",
+                "page": 56
+              },
+              {
+                "code": "1.2.3",
+                "title": "파일 시스템 관련 명령어",
+                "page": 58
+              },
+              {
+                "code": "1.2.4",
+                "title": "파일 시스템 관련 파일과 명령어",
+                "page": 70
+              },
+              {
+                "code": "1.2.5",
+                "title": "스왑(Swap) 생성",
+                "page": 73
+              },
+              {
+                "code": "1.2.6",
+                "title": "Disk Quota",
+                "page": 76
+              },
+              {
+                "code": "1.2.7",
+                "title": "파일 링크(Link)",
+                "page": 83
+              }
+            ]
+          },
+          {
+            "code": "1.3",
+            "title": "프로세스 관리",
+            "page": 85,
+            "items": [
+              {
+                "code": "1.3.1",
+                "title": "프로세스의 개념 및 종류",
+                "page": 85
+              },
+              {
+                "code": "1.3.2",
+                "title": "시그널과 데몬",
+                "page": 87
+              },
+              {
+                "code": "1.3.3",
+                "title": "프로세스 관련 명령어",
+                "page": 91
+              },
+              {
+                "code": "1.3.4",
+                "title": "프로세스의 제어",
+                "page": 104
+              }
+            ]
+          },
+          {
+            "code": "1.4",
+            "title": "소프트웨어 설치 및 관리",
+            "page": 108,
+            "items": [
+              {
+                "code": "1.4.1",
+                "title": "프로그램 설치의 개요",
+                "page": 108
+              },
+              {
+                "code": "1.4.2",
+                "title": "소스 파일을 이용한 설치",
+                "page": 109
+              },
+              {
+                "code": "1.4.3",
+                "title": "패키지 파일을 이용한 설치",
+                "page": 110
+              },
+              {
+                "code": "1.4.4",
+                "title": "tar와 압축 관련 유틸리티",
+                "page": 111
+              },
+              {
+                "code": "1.4.5",
+                "title": "rpm 사용법",
+                "page": 117
+              },
+              {
+                "code": "1.4.6",
+                "title": "yum 사용법",
+                "page": 123
+              },
+              {
+                "code": "1.4.7",
+                "title": "라이브러리 관리",
+                "page": 126
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "02",
+        "title": "장치 관리",
+        "sections": [
+          {
+            "code": "2.1",
+            "title": "장치의 설치 및 관리",
+            "page": 131,
+            "items": [
+              {
+                "code": "2.1.1",
+                "title": "모듈(Module)",
+                "page": 131
+              },
+              {
+                "code": "2.1.2",
+                "title": "커널(kernel) 컴파일",
+                "page": 136
+              }
+            ]
+          },
+          {
+            "code": "2.2",
+            "title": "주변장치 관리",
+            "page": 140,
+            "items": [
+              {
+                "code": "2.2.1",
+                "title": "디스크 확장",
+                "page": 140
+              },
+              {
+                "code": "2.2.2",
+                "title": "프린터",
+                "page": 142
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "03",
+        "title": "시스템 보안 및 관리",
+        "sections": [
+          {
+            "code": "3.1",
+            "title": "시스템 분석",
+            "page": 148,
+            "items": [
+              {
+                "code": "3.1.1",
+                "title": "rsyslog",
+                "page": 148
+              },
+              {
+                "code": "3.1.2",
+                "title": "로그 파일 관리: logrotate",
+                "page": 152
+              },
+              {
+                "code": "3.1.3",
+                "title": "로그 관련 파일",
+                "page": 154
+              },
+              {
+                "code": "3.1.4",
+                "title": "로그 관련 명령어",
+                "page": 156
+              }
+            ]
+          },
+          {
+            "code": "3.2",
+            "title": "시스템 보안 및 관리",
+            "page": 161,
+            "items": [
+              {
+                "code": "3.2.1",
+                "title": "시스템 보안관리",
+                "page": 161
+              },
+              {
+                "code": "3.2.2",
+                "title": "sysctl과 보안",
+                "page": 164
+              },
+              {
+                "code": "3.2.3",
+                "title": "SSH(Secure Shell)",
+                "page": 167
+              },
+              {
+                "code": "3.2.4",
+                "title": "PAM",
+                "page": 0
+              },
+              {
+                "code": "3.2.5",
+                "title": "sudo(Superuser do)",
+                "page": 178
+              },
+              {
+                "code": "3.2.6",
+                "title": "lsattr과 chattr",
+                "page": 180
+              },
+              {
+                "code": "3.2.7",
+                "title": "ACL(Access Control List)",
+                "page": 181
+              },
+              {
+                "code": "3.2.8",
+                "title": "nmap(network mapper)",
+                "page": 183
+              }
+            ]
+          },
+          {
+            "code": "3.3",
+            "title": "시스템 백업",
+            "page": 184,
+            "items": [
+              {
+                "code": "3.3.1",
+                "title": "시스템 백업의 개요",
+                "page": 184
+              },
+              {
+                "code": "3.3.2",
+                "title": "시스템 백업 관련 명령어",
+                "page": 185
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "Part03",
+    "title": "네트워크 및 서비스의 활용",
+    "chapters": [
+      {
+        "code": "01",
+        "title": "네트워크 서비스",
+        "sections": [
+          {
+            "code": "1.1",
+            "title": "웹 관련 서비스",
+            "page": 194,
+            "items": [
+              {
+                "code": "1.1.1",
+                "title": "웹 서비스의 이해",
+                "page": 194
+              },
+              {
+                "code": "1.1.2",
+                "title": "웹 관련 서비스의 운영",
+                "page": 198
+              },
+              {
+                "code": "1.1.3",
+                "title": "기본 httpd 패키지 확인 및 설치",
+                "page": 200
+              },
+              {
+                "code": "1.1.4",
+                "title": "httpd.conf 분석",
+                "page": 202
+              },
+              {
+                "code": "1.1.5",
+                "title": "Apache 웹 서버 실행",
+                "page": 212
+              },
+              {
+                "code": "1.1.6",
+                "title": "웹 서버 운영",
+                "page": 214
+              }
+            ]
+          },
+          {
+            "code": "1.2",
+            "title": "인증 관련 서비스",
+            "page": 218,
+            "items": [
+              {
+                "code": "1.2.1",
+                "title": "인증의 개요",
+                "page": 218
+              },
+              {
+                "code": "1.2.2",
+                "title": "NIS의 개요",
+                "page": 218
+              },
+              {
+                "code": "1.2.3",
+                "title": "LDAP의 개요",
+                "page": 218
+              },
+              {
+                "code": "1.2.4",
+                "title": "NIS 구축",
+                "page": 220
+              }
+            ]
+          },
+          {
+            "code": "1.3",
+            "title": "파일 관련 서비스",
+            "page": 231,
+            "items": [
+              {
+                "code": "1.3.1",
+                "title": "삼바(SAMBA) 서버 관리",
+                "page": 231
+              },
+              {
+                "code": "1.3.2",
+                "title": "NFS 서버 관리",
+                "page": 244
+              },
+              {
+                "code": "1.3.3",
+                "title": "FTP 서버 관리",
+                "page": 250
+              }
+            ]
+          },
+          {
+            "code": "1.4",
+            "title": "메일 관련 서비스",
+            "page": 255,
+            "items": [
+              {
+                "code": "1.4.1",
+                "title": "메일 관련 프로토콜",
+                "page": 255
+              },
+              {
+                "code": "1.4.2",
+                "title": "메일 관련 프로그램의 분류",
+                "page": 256
+              },
+              {
+                "code": "1.4.3",
+                "title": "센드메일의 개요",
+                "page": 256
+              },
+              {
+                "code": "1.4.4",
+                "title": "센드메일 관련 주요 파일",
+                "page": 258
+              },
+              {
+                "code": "1.4.5",
+                "title": "센드메일 서버 설정과 확인",
+                "page": 261
+              },
+              {
+                "code": "1.4.6",
+                "title": "센드메일 관련 주요 명령어",
+                "page": 263
+              }
+            ]
+          },
+          {
+            "code": "1.5",
+            "title": "DNS 관리",
+            "page": 264,
+            "items": [
+              {
+                "code": "1.5.1",
+                "title": "DNS의 개요",
+                "page": 264
+              },
+              {
+                "code": "1.5.2",
+                "title": "DNS 서버 설정",
+                "page": 265
+              },
+              {
+                "code": "1.5.3",
+                "title": "DNS 서버 설정 확인",
+                "page": 272
+              },
+              {
+                "code": "1.5.4",
+                "title": "DNS 관련 유틸리티",
+                "page": 276
+              }
+            ]
+          },
+          {
+            "code": "1.6",
+            "title": "기타 서비스",
+            "page": 277,
+            "items": [
+              {
+                "code": "1.6.1",
+                "title": "슈퍼 데몬 관리",
+                "page": 277
+              },
+              {
+                "code": "1.6.2",
+                "title": "프록시(Proxy) 서버 관리",
+                "page": 286
+              },
+              {
+                "code": "1.6.3",
+                "title": "DHCP 관리",
+                "page": 289
+              },
+              {
+                "code": "1.6.4",
+                "title": "VNC 관리",
+                "page": 291
+              },
+              {
+                "code": "1.6.5",
+                "title": "NTP 관리",
+                "page": 294
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "02",
+        "title": "네트워크 보안 관리",
+        "sections": [
+          {
+            "code": "2.1",
+            "title": "iptables",
+            "page": 296,
+            "items": [
+              {
+                "code": "2.1.1",
+                "title": "iptables",
+                "page": 296
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
