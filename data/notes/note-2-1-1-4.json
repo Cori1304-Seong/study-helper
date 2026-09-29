@@ -1,0 +1,64 @@
+{
+  "id": "note-2-1-1-4",
+  "title": "사용자 계정 관리 및 삭제",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.4",
+    "page": 32
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-1-4/commands",
+      "title": "명령어 표",
+      "kind": "command",
+      "items": [
+        {
+          "term": "usermod",
+          "desc": "사용자의 셀, 홈, 디렉터리, 그룹, UID, GID 등을 변경하는 명령어로 사용자 관려하여 대부분의 정보를 변경할 수 있다. ",
+          "options": [
+            {
+              "flag": "-d",
+              "meaning": "사용자의 홈 디렉터리를 변경한다. (변경할 디렉토리가 미리 생성되어야 한다)",
+              "detail": "-m과 같이 사용면 사용하던 홈 디렉터리의 파일과 디렉터리도 같이 옮겨주므로 이 경우에는 디렉터리를 생성할 필요가없다. \nex) usermod -d /home2/posein -m posein"
+            },
+            {
+              "flag": "-g ",
+              "meaning": "사용자의 그룹을 변경"
+            },
+            {
+              "flag": "-s",
+              "meaning": "사용자의 셀 변경"
+            },
+            {
+              "flag": "-u ",
+              "meaning": "사용자의 uid 변경 "
+            },
+            {
+              "flag": "-e",
+              "meaning": "사용자의 만기일 변경, YYYY-MM-DD 또는 MM/DD/YY 형태로 지정"
+            },
+            {
+              "flag": "-f",
+              "meaning": "패스워드 만기일이 지난 후 패스워드에 Lock을 설정할 유예기간을 지정한다. "
+            }
+          ]
+        },
+        {
+          "term": "userdel",
+          "desc": "사용자 계정 삭제 명령어",
+          "options": [
+            {
+              "flag": "-r",
+              "meaning": "사용자의 홈 디렉토리 및 메일 관련 파일까지 제거한다. "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-09-28T14:24:15.510Z"
+}

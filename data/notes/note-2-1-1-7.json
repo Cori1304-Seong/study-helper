@@ -1,0 +1,97 @@
+{
+  "id": "note-2-1-1-7",
+  "title": "사용자 조회 명령어",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.7",
+    "page": 42
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-1-7/commands",
+      "title": "명령어 표",
+      "kind": "command",
+      "items": [
+        {
+          "term": "users",
+          "desc": "시스템에 로그인되어 있는 사용자의 아이디 출력"
+        },
+        {
+          "term": "who",
+          "desc": "시스템의 로그인된 사용자 출력",
+          "options": [
+            {
+              "flag": "-b",
+              "meaning": "시스템 부팅시간 출력"
+            },
+            {
+              "flag": "-d",
+              "meaning": "죽은 프로세스 출력"
+            },
+            {
+              "flag": "-H",
+              "meaning": "출력되는 정보의 헤더 출력"
+            },
+            {
+              "flag": "-l",
+              "meaning": "시스템 로그인 프로세스 출력"
+            },
+            {
+              "flag": "-m",
+              "meaning": "표준 입출력 연관된 호스트명과 사용자명 출력($who am i 와 동일한 결과)"
+            }
+          ]
+        },
+        {
+          "term": "whoami",
+          "desc": "실질적으로 사용 중인 권하자를 출력"
+        },
+        {
+          "term": "w",
+          "desc": "시스템에 로그인되어 있는 사용자와 사용자가 수행중인 작업을 출력 ",
+          "options": [
+            {
+              "flag": "-h",
+              "meaning": "윗부분 설명인 헤더를 출력하지 않는다."
+            },
+            {
+              "flag": "-s",
+              "meaning": "LOGIN@, JCPU, PCPU를 제외하고 간략히 출력"
+            }
+          ]
+        },
+        {
+          "term": "logname",
+          "desc": "su 명령으로 사용자 전환했을 경우에 최초의 로그인 계정을 출력한다. "
+        },
+        {
+          "term": "id ",
+          "desc": "시스템에 등록된 아이디에 대한 정보를 출력하는 명령으로 UID, GID 속한 그룹 정보를 보여줌 (SELinux를 사용하는 경우 context라는 항목이 추가되어 출력됨) ",
+          "options": [
+            {
+              "flag": "-g",
+              "meaning": "주 그룹의 GID만 출력한다. "
+            },
+            {
+              "flag": "-G",
+              "meaning": "사용자가 속한 모든 그룹의 GID를 출력한다. "
+            },
+            {
+              "flag": "-u",
+              "meaning": "사용자의 UID 값만 출력한다."
+            },
+            {
+              "flag": "-n",
+              "meaning": "-u나 -g 옵션과 같이 사용되며, 숫자값인 UID 나 GID 대신에 이름으로 출력한다."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-09-28T14:47:23.664Z"
+}

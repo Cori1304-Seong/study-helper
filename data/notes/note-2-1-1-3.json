@@ -13,7 +13,6 @@
     "사용자",
     "파일"
   ],
-  "updatedAt": "2026-09-17T09:00:00.000Z",
   "sections": [
     {
       "id": "note-2-1-1-3/files",
@@ -28,11 +27,13 @@
         {
           "term": "/etc/shadow",
           "desc": "암호화된 패스워드와 만료 정책",
-          "format": "계정명:암호:마지막변경일:MIN:MAX:경고일:유예기간:만료일:예약"
+          "format": "계정명:암호:마지막변경일:MIN:MAX:경고일:유예기간:만료일:예약",
+          "detail": "## pwconv, pwuconv\n대부분의 리눅스 배포판에서는 사용자의 패스워드를 /etc/passwd가 아닌 /etc/shadow에서 관리하고 있다. 만약 /etc/passwd에서 관리하려면 pwunconv라고 입력하면 된고, 다시 /etcshadow에서 관리하려면 pwconv라고 입력하면 된다. \n\n## pwck\npwck(Password Check)의 약자로 사용자 관련 파일인 /etc/passwd와 /etc/shadow를 점검해준다. pwck가 점검하는 일에는 각 사용자의 필드 개수 검사, 아이디 중복 유무 검사, 유효한 사용자 여부 검사, 유효한 UID 및 GID 여부 검사, 사용자의 Primary 그룹 존재 유무 검사, 홈 디렉토리 존재 유무 검사, 로그인 셀 검사 등을 한다. "
         },
         {
           "term": "/etc/default/useradd",
-          "desc": "useradd가 참조하는 기본값 (기본 셸, 홈 경로)"
+          "desc": "useradd가 참조하는 기본값 (기본 셸, 홈 경로)",
+          "format": "'useraddd -D' 명령어를 사용하면 cat /etc/default/useradd와 같은 출력을 볼 수 있다."
         },
         {
           "term": "/etc/skel",
@@ -52,5 +53,6 @@
         "SKEL"
       ]
     }
-  ]
+  ],
+  "updatedAt": "2026-09-28T13:47:04.498Z"
 }

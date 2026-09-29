@@ -1,0 +1,31 @@
+{
+  "id": "note-2-1-1-8",
+  "title": "기타 명령어",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.1",
+    "item": "1.1.8",
+    "page": 46
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-1-8/commands",
+      "title": "명령어 표",
+      "kind": "command",
+      "items": [
+        {
+          "term": "data",
+          "desc": "시스템의 날짜 및 시간을 출력하거나 변경하는 명령어"
+        },
+        {
+          "term": "uname",
+          "desc": "시스템 정보를 출력해주는 명령으로 커널 버전, 머신 타입 등을 알 수 있다. "
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-09-28T14:49:28.733Z"
+}
