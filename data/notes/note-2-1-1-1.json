@@ -12,23 +12,11 @@
   "tags": [],
   "sections": [
     {
-      "id": "note-2-1-1-1/files",
-      "title": "파일 표",
-      "kind": "file",
-      "items": []
-    },
-    {
-      "id": "note-2-1-1-1/steps",
-      "title": "절차",
-      "kind": "steps",
-      "items": []
-    },
-    {
       "id": "note-2-1-1-1/overview",
       "title": "서술",
       "kind": "overview",
       "body": "리눅스의 사용자는 ID가 아닌 숫자 형태인 UID로 관리되며 사용자의 UID는 0번부터 정수값으로 배분되는데, root에 0이 할당되고 0번 사용자를 슈퍼유저라고 부른다\n배포반에 따라 차이가 있다. 사용자 생성 시에 부여되는 UID의 시작 번호가 CentOS6 버전은 500번부터 시작하고 CentOS7 버전은 1000번부터 시작된다. "
     }
   ],
-  "updatedAt": "2026-09-25T05:30:00.932Z"
+  "updatedAt": "2026-10-06T07:48:28.064Z"
 }

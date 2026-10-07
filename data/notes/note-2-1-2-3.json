@@ -1,0 +1,45 @@
+{
+  "id": "note-2-1-2-3",
+  "title": "파일 시스템 관련 명령어",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.2",
+    "item": "1.2.3",
+    "page": 58
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-2-3/commands",
+      "title": "명령어 표",
+      "kind": "command",
+      "items": [
+        {
+          "term": "mount",
+          "desc": "특정 스토리지를 디렉터리 트리의 한 지점에 연결한다. ",
+          "detail": "리눅스는 모든 디바이스와 파일 시스템을 단일 트리 구조(/)로 관리한다. 하드디스크 파티션, USB, ISO 이미지 등을 특정 디렉터리에 붙이는 작업을 마운트(Mount)라 한다",
+          "options": [
+            {
+              "flag": "-t <type>",
+              "meaning": "파일 시스템 종류 지정",
+              "detail": "(ext4, xfs, vfat, nfs, iso9660, cifs 등)을 넣는다 "
+            },
+            {
+              "flag": "-a",
+              "meaning": "noauto를 제외한 모든 파일 시스템을 마운트.",
+              "detail": "etc/fstab 파일에 등록된 마운트 설정 중 noauto를 제외한 모든 파일 시스템을 마운트."
+            },
+            {
+              "flag": "-o <options>",
+              "meaning": "세부 마운트 속성 지정",
+              "detail": "1. ro / rw: 읽기 전용 / 읽기 쓰기 가능.\n2. remount: 이미 마운트된 파일 시스템의 속성을 변경하여 다시 마운트 (예: mount -o remount,rw /).\n3. loop: ISO 이미지 파일 등을 블록 장치처럼 마운트할 때 사용 (mount -o loop ubuntu.iso /mnt/iso).\n4. noexec / exec: 해당 파일 시스템 내 바이너리 실행 금지 / 허용 (보안 설정 관련).\n5. nosuid / suid: SetUID, SetGID 비트 무시 / 허용."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-07T06:32:05.808Z"
+}

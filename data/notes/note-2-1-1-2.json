@@ -24,24 +24,26 @@
           "desc": "새 사용자 계정을 생성한다",
           "options": [
             {
-              "flag": "-u",
-              "meaning": "UID 직접 지정"
+              "flag": "-u [새UID] ",
+              "meaning": "UID 직접 지정(중복 UID 생성 시 -o와 함께 사용)"
             },
             {
-              "flag": "-g",
-              "meaning": "기본 그룹 지정"
+              "flag": "-g [GID/그룹명]",
+              "meaning": "기본 그룹 지정(해당 그룹이 이미 존재해야 함)"
             },
             {
-              "flag": "-G",
+              "flag": "-G [그룹명1,그룹명2...]",
               "meaning": "2차 그룹(보조 그룹) 지정"
             },
             {
-              "flag": "-d",
-              "meaning": "홈 디렉터리 경로 지정"
+              "flag": "-d [홈디렉토리 경로]",
+              "meaning": "홈 디렉터리 경로 지정, 기본 경로 대신 다른 경로 지정",
+              "detail": "사용법: useradd -d [홈디렉토리 경로] \n- 기본 /home/username 대신 다른 경로(예: /data/user01) 지정\n"
             },
             {
-              "flag": "-s",
-              "meaning": "로그인 셸 지정"
+              "flag": "-s [셀 경로]",
+              "meaning": "로그인 셸 지정 ",
+              "detail": "사용법: useradd -s [셀경로]\n- ex /bin/bash, 시스템 계정용 /sbin/nologin 또는 /bin/false"
             },
             {
               "flag": "-M",
@@ -50,6 +52,10 @@
             {
               "flag": "-p",
               "meaning": "유저 생성시 비밀번호 저장(암호화 되지 않은 문자가 저장되기에 사용 지양)"
+            },
+            {
+              "flag": "-r [새UID] ",
+              "meaning": "System account 생성 (UID 1000 미만)"
             }
           ]
         },
@@ -108,5 +114,5 @@
       "body": "# su \n\n- 테넷과 같은 원격 접속시 root 계정으로 로그인이 불가능하도록 설정되어 있다. 그렇기에 관리자가 root로 접근 하기위해서 사용되는 명령어\n- 옵션 없이 실행하면 "
     }
   ],
-  "updatedAt": "2026-09-25T05:43:03.535Z"
+  "updatedAt": "2026-10-07T03:56:59.278Z"
 }

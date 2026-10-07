@@ -33,7 +33,8 @@
         {
           "term": "/etc/default/useradd",
           "desc": "useradd가 참조하는 기본값 (기본 셸, 홈 경로)",
-          "format": "'useraddd -D' 명령어를 사용하면 cat /etc/default/useradd와 같은 출력을 볼 수 있다."
+          "format": "GROUP=100 HOME=/home INACTIVE=-1 EXPIRE= SHELL=/bin/bash SKEL=/etc/skel CREATE_MAIL_SPOOL=yes",
+          "detail": "# 'useraddd -D' 명령어를 사용하면 cat /etc/default/useradd와 같은 출력을 볼 수 있다.\n# /etc/default/useradd 설정 예시 (RHEL / Rocky Linux 8.8 / 9 기준)\nGROUP=100\nHOME=/home\nINACTIVE=-1\nEXPIRE=\nSHELL=/bin/bash\nSKEL=/etc/skel\nCREATE_MAIL_SPOOL=yes"
         },
         {
           "term": "/etc/skel",
@@ -54,5 +55,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-09-28T13:47:04.498Z"
+  "updatedAt": "2026-10-07T04:22:45.205Z"
 }
