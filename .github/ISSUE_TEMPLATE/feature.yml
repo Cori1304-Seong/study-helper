@@ -1,7 +1,7 @@
 name: 기능 추가 / 개선
 description: 학습 기능, 문제 유형, UI 개선 제안
 title: "[feat] "
-labels: ["enhancement"]
+labels: ["✨ feature"]
 body:
   - type: textarea
     id: summary

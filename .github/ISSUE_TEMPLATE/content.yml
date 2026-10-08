@@ -1,7 +1,7 @@
 name: 필기 / 커리큘럼 내용
 description: 교재 목차 추가, 필기 작성·수정, 설명 오류 정정
 title: "[data] "
-labels: ["content"]
+labels: ["📚 content"]
 body:
   - type: input
     id: target
