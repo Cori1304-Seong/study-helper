@@ -1,0 +1,40 @@
+name: 필기 / 커리큘럼 내용
+description: 교재 목차 추가, 필기 작성·수정, 설명 오류 정정
+title: "[data] "
+labels: ["content"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 대상 단원
+      placeholder: "예) 1.2.3 파일 권한"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 작업 종류
+      options:
+        - 새 필기 작성
+        - 기존 필기 보강
+        - 내용 오류 수정
+        - 커리큘럼 목차 추가/변경
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 내용
+      description: 수정이면 "현재 → 바뀔 내용" 형태로.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 확인
+      options:
+        - label: 로컬 `next dev`에서 작성 후 커밋한다 (배포 환경에서는 필기 수정 불가)
+        - label: 기존 섹션 id를 바꾸지 않는다 (바꾸면 학습 기록이 끊긴다)

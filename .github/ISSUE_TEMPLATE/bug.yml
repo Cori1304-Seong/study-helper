@@ -1,0 +1,56 @@
+name: 버그 신고
+description: 동작이 기대와 다를 때
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 증상
+      description: 무슨 일이 일어났는지.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대한 동작
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 재현 절차
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: env
+    attributes:
+      label: 발생 환경
+      options:
+        - 로컬 (next dev + 로컬 PostgreSQL)
+        - 로컬에서 Neon 접속 (dev:neon)
+        - 배포 (Vercel + Neon)
+        - 빌드/타입체크/린트
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 에러 로그 / 콘솔 출력
+      render: text
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 추가 정보
+      description: >
+        해당 섹션 id, 문제 id, 스크린샷 등. 배포에서 필기 수정이 403이면
+        런타임 FS가 읽기 전용이라 정상 동작이다(AGENTS.md 참고).

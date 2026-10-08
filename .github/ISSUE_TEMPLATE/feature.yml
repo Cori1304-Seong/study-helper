@@ -1,0 +1,71 @@
+name: 기능 추가 / 개선
+description: 학습 기능, 문제 유형, UI 개선 제안
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 무엇을 하고 싶은가
+      description: 한두 문장으로. 구현 방법이 아니라 원하는 결과를 쓴다.
+      placeholder: |
+        예) 소단원 여러 개를 골라 "단원 통합 문제"로 한 번에 풀고 싶다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 왜 필요한가
+      description: 지금 어떤 상황에서 불편한지. 실제로 공부하다 겪은 사례를 쓰면 좋다.
+      placeholder: |
+        예) 외운 내용이 쌓이니 소단원 단위로는 다 맞는데 챕터 통으로 섞이면 헷갈린다.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 영향 범위
+      description: 해당하는 것 모두 선택
+      multiple: true
+      options:
+        - 문제 풀이 화면
+        - 백지인출 화면
+        - 진도/통계
+        - 필기 편집
+        - 문제 생성 로직 (src/lib/questions.ts)
+        - 커리큘럼/필기 데이터 (data/)
+        - DB 스키마 (src/lib/db/)
+        - 기타
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 완료 조건
+      description: 무엇이 되면 이 이슈를 닫을 수 있는지 체크리스트로.
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: data-impact
+    attributes:
+      label: 데이터 영향
+      description: >
+        해당하면 적는다. 문제 id는 `섹션id + term + 문제유형`으로 결정론적이고
+        섹션 id를 바꾸면 그 섹션의 학습 기록이 끊긴다.
+      placeholder: |
+        - 섹션 id 변경 필요: 예/아니오
+        - DB 마이그레이션 필요: 예/아니오 (npm run db:generate)
+        - 필기 JSON 스키마 변경: 예/아니오
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 참고 자료
+      description: 스크린샷, review.txt 항목 번호, 관련 이슈/PR 등

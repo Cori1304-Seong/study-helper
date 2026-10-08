@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 기획 문서 확인
+    url: https://github.com/Cori1304-Seong/study-helper/blob/main/PLANNING.md
+    about: 기능 제안 전에 기획서(개정 2판)에 이미 정의된 내용인지 확인하세요.
+  - name: 개발 규칙 확인
+    url: https://github.com/Cori1304-Seong/study-helper/blob/main/AGENTS.md
+    about: 데이터 저장 구조(필기=파일, 학습 상태=DB)와 검증 명령을 확인하세요.
