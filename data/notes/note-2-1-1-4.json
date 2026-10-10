@@ -39,21 +39,14 @@
               "detail": "- 기존 파일들의 소유권 유지를 위해 -o와 조합되거나 소유권 재설정 필요"
             },
             {
-              "flag": "-e",
-              "meaning": "사용자의 만기일 변경, YYYY-MM-DD 또는 MM/DD/YY 형태로 지정"
-            },
-            {
-              "flag": "-f",
-              "meaning": "패스워드 만기일이 지난 후 패스워드에 Lock을 설정할 유예기간을 지정한다. "
-            },
-            {
               "flag": "-a",
               "meaning": "보조 그룹 추가",
               "detail": "$-aG 형태로 조합하여 사용. 기존 보조 그룹을 유지하며 새 그룹 추가"
             },
             {
               "flag": "-l",
-              "meaning": "계정 이름(ID) 변경"
+              "meaning": "계정 이름(ID) 변경",
+              "detail": "사용법: usermod -l [새_계정명] [기존_계정명]\n- usermod -l만 실행하면 계정 이름만 변경되고 홈 디렉터리 경로 및 디렉터리명은 기존 그대로 유지된다\n- 제대로 된 사용법: $usermod -l newuser -d /home/newuser -m olduser"
             },
             {
               "flag": "-L",
@@ -96,5 +89,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-07T04:50:36.931Z"
+  "updatedAt": "2026-10-07T15:12:39.926Z"
 }

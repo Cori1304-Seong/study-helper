@@ -16,7 +16,13 @@
       "title": "서술",
       "kind": "overview",
       "body": "리눅스의 사용자는 ID가 아닌 숫자 형태인 UID로 관리되며 사용자의 UID는 0번부터 정수값으로 배분되는데, root에 0이 할당되고 0번 사용자를 슈퍼유저라고 부른다\n배포반에 따라 차이가 있다. 사용자 생성 시에 부여되는 UID의 시작 번호가 CentOS6 버전은 500번부터 시작하고 CentOS7 버전은 1000번부터 시작된다. "
+    },
+    {
+      "id": "note-2-1-1-1/overview-2",
+      "title": "서술",
+      "kind": "overview",
+      "body": "## root만 사용할 수 있는 명령어\n- useradd / adduser: 새 계정 생성\n- usermod: 계정 정보 수정\n- userdel: 계정 삭제\n- groupadd / groupmod / groupdel: 그룹 관리\n- chown: 파일/디렉터리의 소유자 및 소유그룹 변경 (일반 사용자는 자기 파일이라도 남에게 소유권을 넘길 수 없음)\n- passwd / passwd -s 를 제외한 전부: 일반 사용자가 자기 파라미터 없이 사용할 수 있는 옵션은 -S(일부 디스트로) 정도를 제외하면 없음"
     }
   ],
-  "updatedAt": "2026-10-06T07:48:28.064Z"
+  "updatedAt": "2026-10-07T15:21:20.490Z"
 }
