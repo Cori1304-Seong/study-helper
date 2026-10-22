@@ -19,15 +19,6 @@ const KIND_LABEL: Record<DerivedQuestion["kind"], string> = {
 export const questionKindLabel = (kind: DerivedQuestion["kind"]) =>
   KIND_LABEL[kind];
 
-/** 설정 원문에서 빈칸 토큰을 ▢로 가린 문자열 */
-export const maskConfigBody = (body: string, token: string) =>
-  body
-    .split("\n")
-    .map((line) =>
-      line.includes(token) ? line.replace(token, "▢".repeat(6)) : line,
-    )
-    .join("\n");
-
 function sectionQuestions(note: Note, section: NoteSection): DerivedQuestion[] {
   const base = {
     noteId: note.id,

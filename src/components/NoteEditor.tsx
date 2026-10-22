@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Note, NoteItem, NoteSection, NoteSectionKind } from "../types/note";
 import { deriveQuestions } from "../lib/questions";
+import { ConfigBlanks, ConfigTextarea, ProseTextarea } from "./NoteBlocks";
 
 interface NoteEditorProps {
   note: Note;
@@ -410,50 +411,33 @@ const ConfigOrProseBody: React.FC<{
       )}
 
       <Field label={section.kind === "config" ? "설정 원문" : "본문"}>
-        <textarea
-          value={section.body ?? ""}
-          onChange={(e) => onChange({ body: e.target.value })}
-          rows={section.kind === "config" ? 6 : 5}
-          className={`${inputClass} ${section.kind === "config" ? "font-mono" : ""} resize-y leading-relaxed`}
-        />
+        {section.kind === "config" ? (
+          <ConfigTextarea
+            value={section.body ?? ""}
+            onChange={(body) => onChange({ body })}
+          />
+        ) : (
+          <ProseTextarea
+            value={section.body ?? ""}
+            onChange={(body) => onChange({ body })}
+          />
+        )}
       </Field>
 
       {section.kind === "config" && (
-        <div>
-          <p className="text-[11px] font-semibold text-slate-400 mb-1.5">
-            빈칸으로 만들 토큰 ({blanks.length}개 선택)
-          </p>
-          {tokens.length === 0 ? (
-            <p className="text-[11px] text-slate-600">
-              원문을 입력하면 토큰이 여기 나타납니다.
-            </p>
-          ) : (
-            <div className="flex flex-wrap gap-1">
-              {tokens.map((token) => {
-                const on = blanks.includes(token);
-                return (
-                  <button
-                    key={token}
-                    onClick={() =>
-                      onChange({
-                        blanks: on
-                          ? blanks.filter((b) => b !== token)
-                          : [...blanks, token],
-                      })
-                    }
-                    className={`text-[11px] font-mono px-2 py-1 rounded-lg border transition ${
-                      on
-                        ? "bg-emerald-600 text-white border-emerald-500"
-                        : "bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200"
-                    }`}
-                  >
-                    {token}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
+        <ConfigBlanks
+          label={`빈칸으로 만들 토큰 (${blanks.length}개 선택)`}
+          tokens={tokens}
+          selected={blanks}
+          empty="원문을 입력하면 토큰이 여기 나타납니다."
+          onToggle={(token) =>
+            onChange({
+              blanks: blanks.includes(token)
+                ? blanks.filter((b) => b !== token)
+                : [...blanks, token],
+            })
+          }
+        />
       )}
     </div>
   );

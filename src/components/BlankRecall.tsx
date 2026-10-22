@@ -16,6 +16,7 @@ import { NoteItem, NoteSection, NoteSectionProgress } from "../types/note";
 import { CardStatus } from "../types";
 import { STATUS_META, formatDue, isDue } from "../lib/review";
 import { useAppStore } from "../lib/appStore";
+import { ConfigBlanks, ConfigBody, ConfigPath, ProseBody } from "./NoteBlocks";
 
 const KIND_HINT: Record<NoteSection["kind"], string> = {
   overview: "머릿속으로 설명해본 뒤 열어보세요",
@@ -321,28 +322,21 @@ export const SectionBody: React.FC<{ section: NoteSection }> = ({
   section,
 }) => {
   if (section.kind === "overview") {
-    return (
-      <p className="text-sm text-slate-300 leading-relaxed break-keep">
-        {section.body}
-      </p>
-    );
+    return <ProseBody body={section.body ?? ""} />;
   }
 
   if (section.kind === "config") {
+    const blanks = section.blanks ?? [];
     return (
       <div>
-        {section.path && (
-          <p className="text-[11px] font-mono text-slate-500 mb-1.5">
-            {section.path}
-          </p>
-        )}
-        <pre className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
-          {section.body}
-        </pre>
-        {section.blanks && section.blanks.length > 0 && (
-          <p className="mt-2 text-[10px] text-slate-500">
-            빈칸 대상 토큰: {section.blanks.join(", ")}
-          </p>
+        <ConfigPath path={section.path} />
+        <ConfigBody body={section.body ?? ""} />
+        {blanks.length > 0 && (
+          <ConfigBlanks
+            label={`빈칸 대상 토큰 (${blanks.length}개)`}
+            tokens={blanks}
+            selected={blanks}
+          />
         )}
       </div>
     );
