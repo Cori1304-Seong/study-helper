@@ -65,6 +65,23 @@ npm run dev
 스키마를 고쳤으면 `npm run db:generate`로 마이그레이션을 만들고 `db:migrate`로 적용한다.
 `npm run db:studio`로 데이터를 눈으로 볼 수 있다.
 
+### 고아 진도 기록 정리
+
+`data/notes/*.json`을 손으로 고쳐 항목·섹션을 지우면 그 문제의 진도 기록이 DB에
+남는다. 정리 로직은 `PUT /api/notes/[id]`(편집 화면 저장)에만 있고, 그마저도
+디스크의 필기와 들어온 필기를 비교하는 방식이라 **파일을 이미 고친 뒤에는 저장을
+눌러도 안 지워진다.**
+
+```bash
+npm run db:prune              # 조회만. 아무것도 지우지 않는다
+npm run db:prune -- --apply   # 삭제 (확인 프롬프트, --yes로 건너뜀)
+```
+
+`next dev`가 떠 있어야 한다. 유효한 문제 id를 세는 일을 CLI가 하지 않고
+`POST /api/progress/prune`에 맡기기 때문이다 — 규칙을 베껴 쓰면
+`src/lib/questions.ts`와 어긋나는 순간 살아 있는 기록을 지우는 도구가 된다.
+붙는 DB도 그 dev 서버의 환경이 정한다.
+
 ### 접속 DB 전환
 
 스크립트 이름에 `:neon`이 붙으면 `.env.prod`, 없으면 `.env.local`을 쓴다.
