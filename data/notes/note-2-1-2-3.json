@@ -60,35 +60,12 @@
         {
           "term": "fdisk",
           "desc": "MBR(Master Boot Record) 기반의 블록 디바이스 파티션을 생성, 삭제, 조회, 수정하기 위해 사용",
-          "detail": "fdisk [옵션] <디바이스_장치명>",
+          "detail": "fdisk [옵션] <디바이스_장치명>\n\n셸 옵션은 조회용뿐이고, 실제 파티션 작업(n/d/p/t/w/q)은 fdisk /dev/sdb로 들어간 대화형 모드의 내부 커맨드다 — 둘을 구분해서 출제된다.\n2TB 초과 디스크는 MBR 한계 때문에 fdisk 대신 parted나 gdisk를 쓴다.",
           "options": [
             {
-              "flag": "-n",
-              "meaning": "새 파티션 추가 (Primary or Extended 선택)"
-            },
-            {
-              "flag": "-d",
-              "meaning": "기존 파티션 삭제"
-            },
-            {
-              "flag": "-p",
-              "meaning": "현재 설정된 파티션 테이블 정보 출력"
-            },
-            {
-              "flag": "-t",
-              "meaning": "파티션 타입(ID) 변경 (예: Linux Swap은 82, LVM은 8e)"
-            },
-            {
-              "flag": "-l ",
-              "meaning": "장착된 디스크들의 파티션 테이블 정보 출력 "
-            },
-            {
-              "flag": "-w",
-              "meaning": "변경 사항을 디스크에 저장하고 종료 (이걸 안 하면 작업 내용 날아감)"
-            },
-            {
-              "flag": "-q",
-              "meaning": "저장하지 않고 취소 후 종료"
+              "flag": "-l",
+              "meaning": "장착된 디스크들의 파티션 테이블 정보 출력",
+              "detail": "fdisk -l — 장치명을 주면 그 디스크만 본다 (fdisk -l /dev/sdb)."
             }
           ]
         },
@@ -133,7 +110,8 @@
         },
         {
           "term": "e2fsck",
-          "desc": ""
+          "desc": "ext2/3/4 전용 파일시스템 검사·복구 도구",
+          "detail": "fsck가 ext 계열에 대해 내부적으로 호출하는 실체다.\nmke2fs(생성) ↔ e2fsck(검사)로 짝지어 외우면 된다."
         },
         {
           "term": "df",
@@ -152,6 +130,39 @@
         {
           "term": "stat",
           "desc": "파일 또는 파일 시스템 관련 정보를 추력하는 명령어"
+        }
+      ]
+    },
+    {
+      "id": "note-2-1-2-3/fdisk-interactive",
+      "title": "(fdisk) 내부 커맨드",
+      "kind": "command",
+      "items": [
+        {
+          "term": "n",
+          "desc": "새 파티션 추가 (primary / extended 선택)"
+        },
+        {
+          "term": "d",
+          "desc": "기존 파티션 삭제"
+        },
+        {
+          "term": "p",
+          "desc": "현재 설정된 파티션 테이블 정보 출력"
+        },
+        {
+          "term": "t",
+          "desc": "파티션 타입(ID) 변경",
+          "detail": "Linux는 83, Linux swap은 82, LVM은 8e.\nl을 누르면 전체 타입 코드 목록이 나온다."
+        },
+        {
+          "term": "w",
+          "desc": "변경 사항을 디스크에 저장하고 종료",
+          "detail": "fdisk는 w 전까지 메모리에서만 작업한다 — 안 쓰면 전부 날아간다.\n입력 즉시 반영되는 parted와 정반대다."
+        },
+        {
+          "term": "q",
+          "desc": "저장하지 않고 취소 후 종료"
         }
       ]
     },
@@ -177,13 +188,8 @@
         },
         {
           "term": "/dev/sda, /dev/sdb",
-          "desc": "USB Memory",
-          "detail": "리눅스 커널은 USB 메모리를 **SCSI 블록 장치(sd)**로 인식함."
-        },
-        {
-          "term": "/dev/sda, /dev/sdb",
-          "desc": "S-ATA HDD",
-          "detail": "- 현대 커널(libata)은 SATA 디스크도 **SCSI Subsystem(sd)**으로 통합 처리함."
+          "desc": "S-ATA HDD, SCSI HDD, USB 메모리 — 모두 SCSI 블록 장치(sd)로 인식",
+          "detail": "리눅스 커널은 USB 메모리를 SCSI 블록 장치(sd)로 인식한다.\n현대 커널(libata)은 SATA 디스크도 SCSI Subsystem(sd)으로 통합 처리한다.\n인식 순서대로 sda, sdb, sdc...가 붙는다 — 포트 번호가 아니다."
         }
       ]
     },

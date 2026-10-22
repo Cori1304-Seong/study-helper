@@ -9,10 +9,7 @@
     "page": 22
   },
   "summary": "useradd/adduser 계열 명령과 계정 생성 시 함께 일어나는 일들.",
-  "tags": [
-    "사용자",
-    "명령어"
-  ],
+  "tags": ["사용자", "명령어"],
   "sections": [
     {
       "id": "note-2-1-1-2/commands",
@@ -56,42 +53,6 @@
             {
               "flag": "-r [새UID] ",
               "meaning": "System account 생성 (UID 1000 미만)"
-            }
-          ]
-        },
-        {
-          "term": "passwd",
-          "desc": "계정의 패스워드를 설정하거나 변경한다",
-          "options": [
-            {
-              "flag": "-l",
-              "meaning": "계정 잠금"
-            },
-            {
-              "flag": "-u",
-              "meaning": "계정 잠금 해제"
-            },
-            {
-              "flag": "-d",
-              "meaning": "패스워드 삭제"
-            }
-          ]
-        },
-        {
-          "term": "chage",
-          "desc": "패스워드 만료 관련 정책을 조회·변경한다",
-          "options": [
-            {
-              "flag": "-l",
-              "meaning": "현재 만료 정보 조회"
-            },
-            {
-              "flag": "-M",
-              "meaning": "최대 사용 기간 설정"
-            },
-            {
-              "flag": "-E",
-              "meaning": "계정 만료일 설정"
             }
           ]
         },
