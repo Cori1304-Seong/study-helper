@@ -16,9 +16,10 @@ import {
   XCircle,
 } from "lucide-react";
 import { CardStatus } from "../types";
-import { maskConfigBody, questionKindLabel } from "../lib/questions";
+import { questionKindLabel } from "../lib/questions";
 import { STATUS_META, formatDue, isDue } from "../lib/review";
 import { useAppStore } from "../lib/appStore";
+import { ConfigBody } from "./NoteBlocks";
 
 export type DrillFilter = "all" | "due" | "fresh" | "weak";
 
@@ -282,11 +283,12 @@ export const QuestionDrill: React.FC = () => {
 
             {/* 빈칸형은 가려진 원문을 함께 보여준다 */}
             {current.kind === "blank" && current.configBody && (
-              <pre className="mt-3 bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-xs font-mono text-slate-300 overflow-x-auto leading-relaxed">
-                {revealed
-                  ? current.configBody
-                  : maskConfigBody(current.configBody, current.answer)}
-              </pre>
+              <div className="mt-3">
+                <ConfigBody
+                  body={current.configBody}
+                  maskToken={revealed ? undefined : current.answer}
+                />
+              </div>
             )}
 
             {revealed ? (
