@@ -1,0 +1,132 @@
+{
+  "id": "note-2-2-2-1",
+  "title": "디스크 확장",
+  "book": {
+    "part": 2,
+    "chapter": 2,
+    "section": "2.2",
+    "item": "2.2.1",
+    "page": 140
+  },
+  "summary": "parted는 MBR·GPT를 모두 지원하며, 2TB 초과 디스크와 파티션 크기 조절, 스크립트 자동화에 쓰는 파티션 관리 도구다.",
+  "tags": ["parted", "GPT", "파티션", "디스크"],
+  "sections": [
+    {
+      "id": "note-2-2-2-1/parted-overview",
+      "title": "parted를 쓰는 이유",
+      "kind": "overview",
+      "body": "parted는 MBR과 GPT를 모두 지원하는 파티션 관리 도구다. fdisk로 안 되는 세 가지가 존재 이유다.\n\n1. 2TB 초과 디스크 — MBR의 2TB 한계를 넘는 GPT 조작이 기본\n2. 크기 조절 — 파티션을 지우지 않고 영역 자체를 조절(resizepart)\n3. 자동화 — -s로 프롬프트 없이 셸 스크립트에서 실행\n\nfdisk는 w로 기록할 때까지 커널에 반영되지 않지만, parted는 대부분의 조작이 입력 즉시 디스크에 반영된다. 되돌릴 수 없다."
+    },
+    {
+      "id": "note-2-2-2-1/commands",
+      "title": "실행 방식",
+      "kind": "command",
+      "items": [
+        {
+          "term": "parted",
+          "desc": "MBR·GPT를 모두 다루는 파티션 관리 도구. 2TB 초과 디스크, 파티션 크기 조절, 스크립트 자동화에 쓴다",
+          "detail": "parted /dev/sdb → 대화형 모드로 진입하고 (parted) 프롬프트가 뜬다.\n2TB 초과 디스크는 fdisk 대신 parted 또는 gdisk를 쓴다 — 둘의 역할을 묻는 문제가 나온다.",
+          "options": [
+            {
+              "flag": "-s",
+              "meaning": "프롬프트 입력 없이 명령어를 즉시 실행하고 종료",
+              "detail": "--script와 같다. 경고 메시지를 억제하고 사용자 입력을 받지 않는다.\n예: parted -s /dev/sdb mklabel gpt\n자동화 스크립트의 필수 옵션이고, 필기 보기에 자주 나온다."
+            },
+            {
+              "flag": "-l",
+              "meaning": "모든 블록 디바이스의 파티션 테이블을 출력",
+              "detail": "parted -l — 디스크 목록과 레이아웃을 한눈에 본다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "note-2-2-2-1/interactive",
+      "title": "(parted) 내부 커맨드",
+      "kind": "command",
+      "items": [
+        {
+          "term": "print",
+          "desc": "현재 파티션 테이블 레이아웃 출력 — 디스크 모델·총 용량, 파티션 번호/시작/끝/크기/파일시스템 타입"
+        },
+        {
+          "term": "mklabel",
+          "desc": "새 파티션 테이블 생성(초기화)",
+          "detail": "mklabel [label-type]. 디스크 내용이 날아간다.",
+          "options": [
+            {
+              "flag": "gpt",
+              "meaning": "GPT 파티션 테이블 생성 (2TB 초과 지원)"
+            },
+            {
+              "flag": "msdos",
+              "meaning": "MBR 파티션 테이블 생성"
+            }
+          ]
+        },
+        {
+          "term": "mkpart",
+          "desc": "파티션 생성",
+          "detail": "mkpart [part-type] [fs-type] [start] [end]\n예: mkpart primary ext4 0% 100% (디스크 전체 할당)\n\npart-type: GPT에서는 primary로 통일(생략 가능), MBR에서는 primary/extended/logical.\nfs-type: 실제 포맷이 아니라 파티션 메타데이터의 타입 지정일 뿐 — 포맷은 mkfs로 따로 한다.\nstart/end: 백분율(%) 사용 가능. 이 구문의 정합성이 출제 포인트다."
+        },
+        {
+          "term": "resizepart",
+          "desc": "지정한 번호의 파티션 끝 지점을 바꿔 크기를 조절",
+          "detail": "resizepart [number] [end]\n예: resizepart 2 500GB\n파티션 영역만 조절한다. 파일시스템 크기는 resize2fs 등으로 따로 맞춰야 한다."
+        },
+        {
+          "term": "rm",
+          "desc": "지정한 번호의 파티션 삭제"
+        },
+        {
+          "term": "unit",
+          "desc": "출력·입력 단위 변경",
+          "detail": "unit [unit] — s, B, KB, MB, GB, TB, % 중 하나.",
+          "options": [
+            {
+              "flag": "s",
+              "meaning": "섹터(sector) 단위"
+            },
+            {
+              "flag": "%",
+              "meaning": "전체 디스크 용량에 대한 백분율"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "note-2-2-2-1/steps",
+      "title": "GPT로 100GB 파티션 만들기",
+      "kind": "steps",
+      "items": [
+        {
+          "term": "parted /dev/sdb",
+          "desc": "대화형 모드로 진입"
+        },
+        {
+          "term": "mklabel gpt",
+          "desc": "GPT 파티션 테이블 생성"
+        },
+        {
+          "term": "unit GB",
+          "desc": "입출력 단위를 GB로 변경"
+        },
+        {
+          "term": "mkpart primary ext4 0 100",
+          "desc": "0~100GB 영역에 파티션 생성"
+        },
+        {
+          "term": "print",
+          "desc": "파티션 테이블 확인"
+        },
+        {
+          "term": "quit",
+          "desc": "종료"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-21T00:00:00.000Z"
+}

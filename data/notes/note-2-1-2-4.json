@@ -1,0 +1,29 @@
+{
+  "id": "note-2-1-2-4",
+  "title": "파일 시스템 관련 파일과 명령어",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.2",
+    "item": "1.2.4",
+    "page": 70
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-2-4/files",
+      "title": "파일 표",
+      "kind": "file",
+      "items": [
+        {
+          "term": "/etc/fstab",
+          "desc": "시스템 부팅 시 파일 시스템을 마운트할 디스크 장치, 마운트 포인트, 파일 시스템 종류, 옵션 등이 기록됨",
+          "format": "UUID=xxxx-xxxx-xxxx    /mount/point    ext4    defaults,nofail    0    2",
+          "detail": "1. 장치 파일명 또는 UUID: /dev/sda1 또는 UUID=xxxx-xxxx. (실무 및 시험 모두 장치명 변경에 안전한 UUID 사용 권장)\n2. 마운트 포인트: 디스크가 연결될 디렉토리 절대 경로 (예: /data)\n3. 파일 시스템 타입: ext4, xfs, swap, nfs 등\n4.마운트 옵션:\n (1) defaults: 기본값 적용 (rw, suid, dev, exec, auto, nouser, async)\n (2) ro / rw: 읽기 전용 / 읽기·쓰기\n (3) noexec: 해당 파티션 내 실행파일 실행 차단 (보안 설정) \n (4) nofail: 부팅 시 해당 디스크 오류 발생해도 시스템 부팅 중단 방지\n (5) Dump (백업 설정): 0 (백업 안 함), 1 (dump 명령어 백업 대상)\n\n5. Fsck (무결성 검사 순서):\n  0: 부팅 시 검사 안 함\n  1: 루트 파일 시스템 (/) - 최우선 검사\n  2: 루트 외 파일 시스템 (/home, /data 등) - 순차적 검사"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-17T08:29:14.795Z"
+}
