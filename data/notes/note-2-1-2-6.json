@@ -1,0 +1,200 @@
+{
+  "id": "note-2-1-2-6",
+  "title": "Disk Quota",
+  "book": {
+    "part": 2,
+    "chapter": 1,
+    "section": "1.2",
+    "item": "1.2.6",
+    "page": 76
+  },
+  "summary": "",
+  "tags": [],
+  "sections": [
+    {
+      "id": "note-2-1-2-6/commands",
+      "title": "명령어 표",
+      "kind": "command",
+      "items": [
+        {
+          "term": "quotacheck",
+          "desc": "파일시스템을 검사해 사용자·그룹별 실제 사용량을 quota 데이터베이스에 생성·갱신한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "쿼터가 설정된 모든 파일시스템 검사"
+            },
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 검사"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 검사"
+            },
+            {
+              "flag": "-c",
+              "meaning": "기존 쿼터 파일을 읽지 않고 새로 생성"
+            },
+            {
+              "flag": "-m",
+              "meaning": "검사 중 파일시스템을 읽기 전용으로 다시 마운트하지 않음"
+            },
+            {
+              "flag": "-v",
+              "meaning": "검사 진행 내용을 자세히 출력"
+            }
+          ],
+          "detail": "실제 파일시스템을 스캔해 사용자·그룹별 사용량을 quota 데이터베이스(aquota.user, aquota.group 등)에 반영한다. 쿼터를 처음 설정하거나 실제 파일 사용량과 기록이 맞지 않을 때 실행한다.\n\n사용 예: quotacheck -avugm\n-a 전체 쿼터 파일시스템, -v 진행 내용 출력, -u 사용자, -g 그룹을 검사한다. -m은 파일시스템을 읽기 전용으로 다시 마운트하지 않는다.\n\n사전에 해당 파일시스템에 usrquota/grpquota 설정이 필요하다."
+        },
+        {
+          "term": "edquota",
+          "desc": "편집기에서 사용자·그룹의 디스크 사용 한도와 유예 기간을 설정한다",
+          "options": [
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 편집"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 편집"
+            },
+            {
+              "flag": "-p",
+              "meaning": "기준 사용자·그룹의 설정을 복사"
+            },
+            {
+              "flag": "-t",
+              "meaning": "soft limit 초과 후 허용되는 유예 기간 편집"
+            }
+          ],
+          "detail": "사용 예: edquota -u user01\n실행하면 기본 편집기(보통 vi)가 열려 블록과 inode의 soft/hard limit을 수정한다. 블록 한도는 KB 단위로 입력하므로 10 MB 정도는 10000 KB로 지정한다. soft limit은 유예 기간 동안 초과할 수 있지만 hard limit은 초과할 수 없다.\n\nedquota -g devteam은 그룹 한도를 편집하고, edquota -t는 soft limit 초과 유예 기간을 편집한다."
+        },
+        {
+          "term": "quotaon",
+          "desc": "파일시스템의 사용자·그룹 쿼터 적용을 활성화한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "쿼터가 설정된 모든 파일시스템에서 활성화"
+            },
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 활성화"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 활성화"
+            },
+            {
+              "flag": "-v",
+              "meaning": "처리 결과를 자세히 출력"
+            }
+          ],
+          "detail": "사용 예: quotaon -avug\n쿼터 데이터베이스를 준비한 뒤 실행해 사용자·그룹 쿼터 적용을 시작한다. -a는 쿼터 설정이 있는 모든 파일시스템을 대상으로 한다."
+        },
+        {
+          "term": "quotaoff",
+          "desc": "파일시스템의 사용자·그룹 쿼터 적용을 비활성화한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "쿼터가 설정된 모든 파일시스템에서 비활성화"
+            },
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 비활성화"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 비활성화"
+            },
+            {
+              "flag": "-v",
+              "meaning": "처리 결과를 자세히 출력"
+            }
+          ],
+          "detail": "사용 예: quotaoff -avug\n쿼터 적용을 일시 중지한다. 비활성화해도 설정값이나 quota 데이터베이스가 삭제되는 것은 아니다."
+        },
+        {
+          "term": "repquota",
+          "desc": "파일시스템별 사용자·그룹의 쿼터 사용 현황을 요약해 출력한다",
+          "options": [
+            {
+              "flag": "-a",
+              "meaning": "모든 쿼터 파일시스템 출력"
+            },
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 현황 출력"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 현황 출력"
+            },
+            {
+              "flag": "-s",
+              "meaning": "읽기 쉬운 단위로 표시"
+            },
+            {
+              "flag": "-v",
+              "meaning": "자세한 정보 출력"
+            }
+          ],
+          "detail": "사용 예: repquota -aug\n파일시스템별로 사용자·그룹의 블록 및 inode 사용량, soft/hard limit, 유예 기간 상태를 요약해 보여준다."
+        },
+        {
+          "term": "quota",
+          "desc": "특정 사용자·그룹의 쿼터 사용량과 한도를 출력한다",
+          "options": [
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 조회"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 조회"
+            },
+            {
+              "flag": "-s",
+              "meaning": "읽기 쉬운 단위로 표시"
+            },
+            {
+              "flag": "-v",
+              "meaning": "사용량이 없는 파일시스템도 포함해 자세히 출력"
+            },
+            {
+              "flag": "-q",
+              "meaning": "한도를 초과한 파일시스템만 출력"
+            }
+          ],
+          "detail": "사용 예: quota -u user01 또는 quota -g devteam\n사용량과 soft/hard limit을 확인한다. -s를 붙이면 사람이 읽기 쉬운 단위로 표시한다."
+        },
+        {
+          "term": "setquota",
+          "desc": "편집기를 열지 않고 명령행에서 사용자·그룹의 쿼터 한도를 설정한다",
+          "options": [
+            {
+              "flag": "-u",
+              "meaning": "사용자 쿼터 설정"
+            },
+            {
+              "flag": "-g",
+              "meaning": "그룹 쿼터 설정"
+            },
+            {
+              "flag": "-p",
+              "meaning": "기준 사용자·그룹의 쿼터 설정 복사"
+            },
+            {
+              "flag": "-t",
+              "meaning": "블록·inode soft limit의 유예 기간 설정"
+            }
+          ],
+          "detail": "사용 예: setquota -u user01 10000 20000 1000 2000 /home\n순서대로 블록 soft limit, 블록 hard limit(KB), inode soft limit, inode hard limit(개수), 파일시스템을 지정한다. 이 예시는 user01의 /home 사용 한도를 설정한다. 스크립트에서 편집기 없이 한도를 설정할 때 유용하다."
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-25T06:38:28.152Z"
+}
