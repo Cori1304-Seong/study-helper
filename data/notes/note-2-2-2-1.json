@@ -48,11 +48,12 @@
       "items": [
         {
           "term": "print",
-          "desc": "현재 파티션 테이블 레이아웃 출력 — 디스크 모델·총 용량, 파티션 번호/시작/끝/크기/파일시스템 타입"
+          "desc": "parted 대화형 모드에서 파티션 테이블을 출력하는 명령어",
+          "detail": "디스크 모델·총 용량, 파티션 번호/시작/끝/크기/파일시스템 타입을 출력한다."
         },
         {
           "term": "mklabel",
-          "desc": "새 파티션 테이블 생성(초기화)",
+          "desc": "parted 대화형 모드에서 파티션 테이블을 만드는 명령어",
           "detail": "mklabel [label-type]. 디스크 내용이 날아간다.",
           "options": [
             {
@@ -67,21 +68,21 @@
         },
         {
           "term": "mkpart",
-          "desc": "파티션 생성",
+          "desc": "parted 대화형 모드에서 파티션을 만드는 명령어",
           "detail": "mkpart [part-type] [fs-type] [start] [end]\n예: mkpart primary ext4 0% 100% (디스크 전체 할당)\n\npart-type: GPT에서는 primary로 통일(생략 가능), MBR에서는 primary/extended/logical.\nfs-type: 실제 포맷이 아니라 파티션 메타데이터의 타입 지정일 뿐 — 포맷은 mkfs로 따로 한다.\nstart/end: 백분율(%) 사용 가능. 이 구문의 정합성이 출제 포인트다."
         },
         {
           "term": "resizepart",
-          "desc": "지정한 번호의 파티션 끝 지점을 바꿔 크기를 조절",
+          "desc": "parted 대화형 모드에서 파티션 끝 지점을 조절하는 명령어",
           "detail": "resizepart [number] [end]\n예: resizepart 2 500GB\n파티션 영역만 조절한다. 파일시스템 크기는 resize2fs 등으로 따로 맞춰야 한다."
         },
         {
           "term": "rm",
-          "desc": "지정한 번호의 파티션 삭제"
+          "desc": "parted 대화형 모드에서 지정한 파티션을 삭제하는 명령어"
         },
         {
           "term": "unit",
-          "desc": "출력·입력 단위 변경",
+          "desc": "parted 대화형 모드에서 입출력 단위를 바꾸는 명령어",
           "detail": "unit [unit] — s, B, KB, MB, GB, TB, % 중 하나.",
           "options": [
             {
